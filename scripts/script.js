@@ -65,16 +65,23 @@ function searchProfile() {
   
   function displayProfile(profile) {
     const profileContainer = document.getElementById('profile-container');
-    profileContainer.innerHTML = `  
-      <div>
-        <img src="${profile.avatar_url}" alt="Profile Image" class="profile-img">
-        <p class="profile-link"><a href="${profile.html_url}" target="_blank"><img class="link-icon" width="20" height="20" src="https://img.icons8.com/material-sharp/24/link--v1.png" alt="link--v1"/> ${profile.html_url}</a></p>
-      </div>
-      <div>
-        <h2>${profile.name}</h2>
-        <p>${profile.login}</p>
-      </div>
-    `;
+    if (profile.message === 'Not Found') {
+      // User not found
+      profileContainer.innerHTML = '<p>User not found</p>';
+    } else {
+      // User found, display profile
+      profileContainer.innerHTML = `
+        <div>
+          <img src="${profile.avatar_url}" alt="Profile Image" class="profile-img">
+          <p class="profile-link"><a href="${profile.html_url}" target="_blank"><img class="link-icon" width="20" height="20" src="https://img.icons8.com/material-sharp/24/link--v1.png" alt="link--v1"/> ${profile.html_url}</a></p>
+        </div>
+        <div>
+          <h2>${profile.name || 'No Name'}</h2>
+          <p>${profile.login}</p>
+        </div>
+      `;
+    }
+  
   }
   
   function displayRepositories(reposUrl, totalRepos, repoContainer) {
