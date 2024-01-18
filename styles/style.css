@@ -35,6 +35,12 @@ body {
     align-items: start;
   }
 
+  @media (max-width: 600px) {
+    .profile-container {
+      flex-direction: column;
+    }
+  }
+
   .profile-container h2{
     font-size: 2rem;
   }
