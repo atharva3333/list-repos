@@ -1,0 +1,118 @@
+body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .search-container {
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  .search-container input{
+    text-align: center;
+    font-size: medium;
+    padding: 16px 32px;
+    border-radius: 999px;
+    border-color: #adadad;
+  }
+
+  .search-btn{
+    padding: 16px 32px;
+    border: none;
+    border-radius: 999px;
+    background-color: rgb(34, 34, 231);
+    font-weight: bold;
+    font-size: medium;
+    color: #fff;
+
+  }
+  
+  .profile-container {
+    display: flex;
+    gap:100px;
+    max-width: 1200px;
+    margin: 20px auto;
+    text-align: left;
+    align-items: start;
+  }
+
+  .profile-container h2{
+    font-size: 2rem;
+  }
+
+  .profile-container a{
+    text-decoration: none;
+  }
+
+  .profile-link{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+
+  .profile-container p{
+    color: #8d8d8d;
+  }
+  
+  .profile-img {
+    border-radius: 50%;
+    max-width: 250px;
+    border: 2px solid rgb(154, 154, 255);
+  }
+
+/* Loader */
+  .loader {
+  border: 8px solid #f3f3f3;
+  border-top: 8px solid black;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.repo-card {
+  border: 1px solid #ddd;
+  padding: 10px;
+  margin: 10px;
+  width: 45%; 
+  box-sizing: border-box;
+  display: inline-block;
+  vertical-align: top;
+}
+
+@media (max-width: 600px) {
+  .repo-card {
+    width: 100%;
+  }
+}
+
+.tags{
+  display: inline-block;
+  background-color: rgb(34, 34, 231);
+  color: #fff;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  padding: 4px 8px;
+  border-radius: 10px;
+}
+
+.pagination{
+  text-align: center;
+  margin: 40px 0px;
+}
+
+.pagination button{
+  /* color: #fff;
+  background: #000; */
+  padding: 10px;
+  margin: 10px 10px;
+  border-radius: 10px;
+}
+
+  
+  

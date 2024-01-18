@@ -1,12 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles/style.css">
+  <title>Github Profile Viewer</title>
 </head>
 <body>
-    
+
+  <div class="search-container">
+   
+    <input type="text" id="username" placeholder="Enter username">
+    <button class="search-btn" onclick="searchProfile()">Search</button>
+  </div>
+
+  
+
+  <div class="profile-container" id="profile-container">
+    <!-- Profile details will be displayed here -->
+  </div>
+  <hr/>
+  <div id="resultsPerPageContainer" style="display: none;">
+    <label for="resultsPerPage">Results Per Page:</label>
+    <select id="resultsPerPage" onchange="changeResultsPerPage()">
+      <option value="10">10</option>
+      <option value="25">25</option>
+      <option value="50">50</option>
+      <option value="100">100</option>
+    </select>
+  </div>
+  
+  <div id="repo-container" class="repo-card-container"></div>
+
+  <script src="scripts/script.js"></script>
 </body>
 </html>
