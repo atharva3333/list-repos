@@ -17,7 +17,15 @@ function searchProfile() {
     profileContainer.appendChild(loader);
   
     fetch(apiUrl)
-      .then(response => response.json())
+    .then(response => {
+      if (response.status === 403) {
+        throw new Error('GitHub API rate limit exceeded. Please wait and try again later.');
+      } else if (!response.ok) {
+        throw new Error(`Error: ${response.status} - ${response.statusText}`);
+      } else {
+        return response.json();
+      }
+    })
       .then(data => {
         const publicRepos = data.public_repos;
         displayProfile(data);
@@ -27,8 +35,19 @@ function searchProfile() {
         resultsPerPageContainer.style.display = 'block';
       })
       .catch(error => {
-        console.error('Error fetching data:', error);
-        profileContainer.innerHTML = '<p>Error fetching data. Please try again.</p>';
+        console.error('Error fetching user profile:', error);
+  
+        // Display rate limit exceeded message on the screen
+        if (error.message.includes('GitHub API rate limit exceeded')) {
+          const errorMessage = document.createElement('p');
+          errorMessage.className = 'error-message';
+          errorMessage.innerText = error.message;
+          profileContainer.innerHTML = '';
+          profileContainer.appendChild(errorMessage);
+        } else {
+          // Display other error messages
+          profileContainer.innerHTML = `<p class="error-message">Error fetching user profile. ${error.message}</p>`;
+        }
       });
   }
   
